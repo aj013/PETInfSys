@@ -19,9 +19,6 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'scale' => [
                 null,
             ],
-            'nullable' => [
-                true,
-            ],
         ],
     ],
     [

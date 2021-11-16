@@ -18,19 +18,23 @@ class Employee
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity=Department::class, inversedBy="Employee")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $department;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Email::class, inversedBy="Employee")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $email;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $department;
+  
 
     public function getId(): ?int
     {
@@ -42,34 +46,36 @@ class Employee
         return $this->name;
     }
 
-    public function setName(?string $name): self
+    public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getDepartment(): ?Department
+    {
+        return $this->department;
+    }
+
+    public function setDepartment(?Department $department): self
+    {
+        $this->department = $department;
+
+        return $this;
+    }
+
+    public function getEmail(): ?Email
     {
         return $this->email;
     }
 
-    public function setEmail(?string $email): self
+    public function setEmail(?Email $email): self
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function getDepartment(): ?string
-    {
-        return $this->department;
-    }
-
-    public function setDepartment(?string $department): self
-    {
-        $this->department = $department;
-
-        return $this;
-    }
+  
 }

@@ -57,17 +57,19 @@ class __TwigTemplate_9f5482d4a25f126ea27537a287ecd3c77c5f35c9e7ae92222881df1dd9e
         echo "        ";
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 11
-        echo "
+        echo "        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">
+        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
+
         ";
-        // line 12
+        // line 14
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 15
+        // line 17
         echo "    </head>
     <body>
         ";
-        // line 17
+        // line 19
         $this->displayBlock('body', $context, $blocks);
-        // line 18
+        // line 20
         echo "    </body>
 </html>
 ";
@@ -120,7 +122,7 @@ class __TwigTemplate_9f5482d4a25f126ea27537a287ecd3c77c5f35c9e7ae92222881df1dd9e
 
     }
 
-    // line 12
+    // line 14
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -130,9 +132,9 @@ class __TwigTemplate_9f5482d4a25f126ea27537a287ecd3c77c5f35c9e7ae92222881df1dd9e
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 13
+        // line 15
         echo "            ";
-        // line 14
+        // line 16
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -142,7 +144,7 @@ class __TwigTemplate_9f5482d4a25f126ea27537a287ecd3c77c5f35c9e7ae92222881df1dd9e
 
     }
 
-    // line 17
+    // line 19
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -167,7 +169,7 @@ class __TwigTemplate_9f5482d4a25f126ea27537a287ecd3c77c5f35c9e7ae92222881df1dd9e
 
     public function getDebugInfo()
     {
-        return array (  146 => 17,  136 => 14,  134 => 13,  124 => 12,  114 => 10,  112 => 9,  102 => 8,  83 => 5,  71 => 18,  69 => 17,  65 => 15,  63 => 12,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
+        return array (  148 => 19,  138 => 16,  136 => 15,  126 => 14,  116 => 10,  114 => 9,  104 => 8,  85 => 5,  73 => 20,  71 => 19,  67 => 17,  65 => 14,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -182,6 +184,8 @@ class __TwigTemplate_9f5482d4a25f126ea27537a287ecd3c77c5f35c9e7ae92222881df1dd9e
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
+        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">
+        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
