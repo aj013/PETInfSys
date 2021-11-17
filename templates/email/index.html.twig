@@ -12,7 +12,9 @@
     </div>
     <div class="col-10">
      {{ include('flash.html.twig') }}
-      {% block method_body %}   <h1>Hello this is email page! ✅</h1>
+      {% block method_body %}   
+      <h1>Hello this is email page! ✅</h1>
+      <a class="btn btn-dark" href={{ path('email.add') }}>Add Email</a>
         {% endblock %}
     </div>
     <div class="col">

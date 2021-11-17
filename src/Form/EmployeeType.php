@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Employee;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,9 +13,10 @@ class EmployeeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
-            ->add('department')
-            ->add('email')
+            ->add('name',null,['attr'=>['class' => 'form-control']])
+            ->add('department',null,['attr'=>['class' => 'form-control']])
+            ->add('email',null,['attr'=>['class' => 'form-control']])
+            ->add('add',SubmitType::class,['attr'=>['class' => 'form-control']])
         ;
     }
 

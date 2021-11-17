@@ -13,6 +13,7 @@
     <div class="col-10">
      {{ include('flash.html.twig') }}
       {% block method_body %}   <h1>Hello this is Employee page! ✅</h1>
+             <a class="btn btn-dark" href={{ path('employee.add') }}>Add Employee</a>
         {% endblock %}
     </div>
     <div class="col">
