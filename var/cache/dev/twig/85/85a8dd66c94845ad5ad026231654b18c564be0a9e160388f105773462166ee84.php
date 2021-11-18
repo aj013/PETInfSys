@@ -111,24 +111,23 @@ class __TwigTemplate_d5624f55a34a1a0e1670bce2c2fdd8660f0eaaea3acec4fdd2ca12fda5a
 
   <div class=\"row\">
     <div class=\"col\">
-     
     </div>
     <div class=\"col-10\">
      ";
-        // line 14
+        // line 13
         echo twig_include($this->env, $context, "flash.html.twig");
         echo "
       ";
-        // line 15
+        // line 14
         $this->displayBlock('method_body', $context, $blocks);
-        // line 19
+        // line 18
         echo "    </div>
     <div class=\"col\">
     </div>
   </div>
 </div>
 ";
-        // line 24
+        // line 23
         echo twig_include($this->env, $context, "foot.html.twig");
         echo "
 ";
@@ -140,7 +139,7 @@ class __TwigTemplate_d5624f55a34a1a0e1670bce2c2fdd8660f0eaaea3acec4fdd2ca12fda5a
 
     }
 
-    // line 15
+    // line 14
     public function block_method_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -153,7 +152,7 @@ class __TwigTemplate_d5624f55a34a1a0e1670bce2c2fdd8660f0eaaea3acec4fdd2ca12fda5a
         echo "   
       <h1>Hello this is email page! ✅</h1>
       <a class=\"btn btn-dark\" href=";
-        // line 17
+        // line 16
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("email.add");
         echo ">Add Email</a>
         ";
@@ -177,7 +176,7 @@ class __TwigTemplate_d5624f55a34a1a0e1670bce2c2fdd8660f0eaaea3acec4fdd2ca12fda5a
 
     public function getDebugInfo()
     {
-        return array (  157 => 17,  144 => 15,  132 => 24,  125 => 19,  123 => 15,  119 => 14,  108 => 6,  98 => 5,  61 => 3,  38 => 1,);
+        return array (  156 => 16,  143 => 14,  131 => 23,  124 => 18,  122 => 14,  118 => 13,  108 => 6,  98 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -192,7 +191,6 @@ class __TwigTemplate_d5624f55a34a1a0e1670bce2c2fdd8660f0eaaea3acec4fdd2ca12fda5a
 
   <div class=\"row\">
     <div class=\"col\">
-     
     </div>
     <div class=\"col-10\">
      {{ include('flash.html.twig') }}

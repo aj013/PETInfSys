@@ -32,7 +32,7 @@ class __TwigTemplate_4af81221969e309fca5afbeab64c8609d62b3f09454526c3eccc1ebb1c7
     protected function doGetParent(array $context)
     {
         // line 1
-        return "email/add.html.twig";
+        return "email/index.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -44,7 +44,7 @@ class __TwigTemplate_4af81221969e309fca5afbeab64c8609d62b3f09454526c3eccc1ebb1c7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "email/add.html.twig"));
 
-        $this->parent = $this->loadTemplate("email/add.html.twig", "email/add.html.twig", 1);
+        $this->parent = $this->loadTemplate("email/index.html.twig", "email/add.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -94,7 +94,7 @@ class __TwigTemplate_4af81221969e309fca5afbeab64c8609d62b3f09454526c3eccc1ebb1c7
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'email/add.html.twig' %}
+        return new Source("{% extends 'email/index.html.twig' %}
 
 {% block method_body %}
 {{form(form,{'attr':{'class' : 'form-control'}} ) }}

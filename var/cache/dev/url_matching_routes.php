@@ -15,12 +15,11 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/department' => [[['_route' => 'department', '_controller' => 'App\\Controller\\DepartmentController::index'], null, null, null, false, false, null]],
         '/department/add' => [[['_route' => 'department.add', '_controller' => 'App\\Controller\\DepartmentController::add'], null, null, null, false, false, null]],
-        '/email' => [[['_route' => 'email', '_controller' => 'App\\Controller\\EmailController::index'], null, null, null, false, false, null]],
-        '/email/add' => [[['_route' => 'email.add', '_controller' => 'App\\Controller\\EmailController::add'], null, null, null, false, false, null]],
         '/employee' => [[['_route' => 'employee', '_controller' => 'App\\Controller\\EmployeeController::index'], null, null, null, false, false, null]],
         '/employee/add' => [[['_route' => 'employee.add', '_controller' => 'App\\Controller\\EmployeeController::add'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_home_index', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/home' => [[['_route' => 'home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
+        '/petemail' => [[['_route' => 'petemail', '_controller' => 'App\\Controller\\PetEmailController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

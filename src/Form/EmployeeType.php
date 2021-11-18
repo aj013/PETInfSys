@@ -15,7 +15,7 @@ class EmployeeType extends AbstractType
         $builder
             ->add('name',null,['attr'=>['class' => 'form-control']])
             ->add('department',null,['attr'=>['class' => 'form-control']])
-            ->add('email',null,['attr'=>['class' => 'form-control']])
+            ->add('petEmail',null,['attr'=>['class' => 'form-control']])
             ->add('add',SubmitType::class,['attr'=>['class' => 'form-control']])
         ;
     }

@@ -338,13 +338,6 @@
         <argument type="service" id=".service_locator.W9y3dzm.App\Controller\DepartmentController"/>
       </call>
     </service>
-    <service id="App\Controller\EmailController" class="App\Controller\EmailController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.W9y3dzm.App\Controller\EmailController"/>
-      </call>
-    </service>
     <service id="App\Controller\EmployeeController" class="App\Controller\EmployeeController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -359,10 +352,14 @@
         <argument type="service" id=".service_locator.W9y3dzm.App\Controller\HomeController"/>
       </call>
     </service>
-    <service id="App\Form\DepartmentType" class="App\Form\DepartmentType" autowire="true" autoconfigure="true">
-      <tag name="form.type"/>
+    <service id="App\Controller\PetEmailController" class="App\Controller\PetEmailController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.W9y3dzm.App\Controller\PetEmailController"/>
+      </call>
     </service>
-    <service id="App\Form\EmailType" class="App\Form\EmailType" autowire="true" autoconfigure="true">
+    <service id="App\Form\DepartmentType" class="App\Form\DepartmentType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\EmployeeType" class="App\Form\EmployeeType" autowire="true" autoconfigure="true">
@@ -372,13 +369,19 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
-    <service id="App\Repository\EmailRepository" class="App\Repository\EmailRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
     <service id="App\Repository\EmployeeRepository" class="App\Repository\EmployeeRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\PetEmailRepository" class="App\Repository\PetEmailRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Service\DepartmentService" class="App\Service\DepartmentService" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="App\Service\EmployeeService" class="App\Service\EmployeeService" autowire="true" autoconfigure="true">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
@@ -958,7 +961,6 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\DepartmentType</argument>
-        <argument>App\Form\EmailType</argument>
         <argument>App\Form\EmployeeType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
@@ -1365,7 +1367,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.ZNqN4Vz"/>
+      <argument type="service" id=".service_locator.yHjtxUq"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4436,7 +4438,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.L9inpjx"/>
+      <argument type="service" id=".service_locator.jGZkSh0"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5559,27 +5561,25 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DepartmentController" class="App\Controller\DepartmentController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DepartmentController" class="App\Controller\DepartmentController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DepartmentController" class="App\Controller\DepartmentController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EmailController" class="App\Controller\EmailController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EmailController" class="App\Controller\EmailController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\EmailController" class="App\Controller\EmailController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\EmployeeController" class="App\Controller\EmployeeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\EmployeeController" class="App\Controller\EmployeeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\EmployeeController" class="App\Controller\EmployeeController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PetEmailController" class="App\Controller\PetEmailController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PetEmailController" class="App\Controller\PetEmailController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\PetEmailController" class="App\Controller\PetEmailController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DepartmentType" class="App\Form\DepartmentType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\DepartmentType" class="App\Form\DepartmentType" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EmailType" class="App\Form\EmailType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\EmailType" class="App\Form\EmailType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\EmployeeType" class="App\Form\EmployeeType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\EmployeeType" class="App\Form\EmployeeType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DepartmentRepository" class="App\Repository\DepartmentRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\DepartmentRepository" class="App\Repository\DepartmentRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EmailRepository" class="App\Repository\EmailRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\EmailRepository" class="App\Repository\EmailRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EmployeeRepository" class="App\Repository\EmployeeRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\EmployeeRepository" class="App\Repository\EmployeeRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PetEmailRepository" class="App\Repository\PetEmailRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\PetEmailRepository" class="App\Repository\PetEmailRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.0GV1BZZ" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5895,27 +5895,31 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.KfbR3DY.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.nc_hMr7" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.iEIOleG" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="emi" type="service_closure" id="doctrine.orm.default_entity_manager"/>
+        <argument key="deptServ" type="service_closure" id="App\Service\DepartmentService"/>
       </argument>
     </service>
-    <service id=".service_locator.bENcnHp" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.L_HgNXN" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\DepartmentController::add" type="service_closure" id=".service_locator.nc_hMr7"/>
-        <argument key="App\Controller\EmailController::add" type="service_closure" id=".service_locator.nc_hMr7"/>
-        <argument key="App\Controller\EmployeeController::add" type="service_closure" id=".service_locator.nc_hMr7"/>
+        <argument key="empServ" type="service_closure" id="App\Service\EmployeeService"/>
+      </argument>
+    </service>
+    <service id=".service_locator.f.pz38P" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\DepartmentController::add" type="service_closure" id=".service_locator.iEIOleG"/>
+        <argument key="App\Controller\EmployeeController::add" type="service_closure" id=".service_locator.L_HgNXN"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
-        <argument key="App\Controller\DepartmentController:add" type="service_closure" id=".service_locator.nc_hMr7"/>
-        <argument key="App\Controller\EmailController:add" type="service_closure" id=".service_locator.nc_hMr7"/>
-        <argument key="App\Controller\EmployeeController:add" type="service_closure" id=".service_locator.nc_hMr7"/>
+        <argument key="App\Controller\DepartmentController:add" type="service_closure" id=".service_locator.iEIOleG"/>
+        <argument key="App\Controller\EmployeeController:add" type="service_closure" id=".service_locator.L_HgNXN"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -5980,11 +5984,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.ZNqN4Vz" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.yHjtxUq" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\DepartmentType" type="service_closure" id="App\Form\DepartmentType"/>
-        <argument key="App\Form\EmailType" type="service_closure" id="App\Form\EmailType"/>
         <argument key="App\Form\EmployeeType" type="service_closure" id="App\Form\EmployeeType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service_closure" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service_closure" id="form.type.choice"/>
@@ -6177,12 +6180,12 @@
       <argument type="service" id="cache.doctrine.orm.default.result"/>
       <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
     </service>
-    <service id=".service_locator.L9inpjx" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.jGZkSh0" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\DepartmentRepository" type="service_closure" id="App\Repository\DepartmentRepository"/>
-        <argument key="App\Repository\EmailRepository" type="service_closure" id="App\Repository\EmailRepository"/>
         <argument key="App\Repository\EmployeeRepository" type="service_closure" id="App\Repository\EmployeeRepository"/>
+        <argument key="App\Repository\PetEmailRepository" type="service_closure" id="App\Repository\PetEmailRepository"/>
       </argument>
     </service>
     <service id=".service_locator.KLVvNIq" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -6258,12 +6261,6 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.W9y3dzm" method="withContext"/>
     </service>
-    <service id=".service_locator.W9y3dzm.App\Controller\EmailController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\EmailController"/>
-      <argument>App\Controller\EmailController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.W9y3dzm" method="withContext"/>
-    </service>
     <service id=".service_locator.W9y3dzm.App\Controller\EmployeeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\EmployeeController"/>
       <argument>App\Controller\EmployeeController</argument>
@@ -6273,6 +6270,12 @@
     <service id=".service_locator.W9y3dzm.App\Controller\HomeController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\HomeController"/>
       <argument>App\Controller\HomeController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.W9y3dzm" method="withContext"/>
+    </service>
+    <service id=".service_locator.W9y3dzm.App\Controller\PetEmailController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\PetEmailController"/>
+      <argument>App\Controller\PetEmailController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.W9y3dzm" method="withContext"/>
     </service>
@@ -6443,12 +6446,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.bENcnHp"/>
+      <argument type="service" id=".service_locator.f.pz38P"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.bENcnHp"/>
+      <argument type="service" id=".service_locator.f.pz38P"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -7303,7 +7306,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.0GV1BZZ" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.bENcnHp"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.f.pz38P"/>
     <service id="session" alias=".session.do-not-use" public="true">
       <deprecated package="symfony/framework-bundle" version="5.3">The "%alias_id%" service and "SessionInterface" alias are deprecated, use "$requestStack-&gt;getSession()" instead.</deprecated>
     </service>
@@ -7344,7 +7347,8 @@
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator._5g_Wvc" alias=".service_locator.KfwZsne"/>
     <service id=".service_locator.JBAFp66" alias=".service_locator.KfbR3DY"/>
-    <service id=".service_locator.VPFqVv7" alias=".service_locator.nc_hMr7"/>
+    <service id=".service_locator.4nFhMxT" alias=".service_locator.iEIOleG"/>
+    <service id=".service_locator.SlLPvol" alias=".service_locator.L_HgNXN"/>
     <service id=".service_locator.NK827YO" alias=".service_locator.W9y3dzm"/>
   </services>
 </container>

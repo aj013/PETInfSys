@@ -16,11 +16,10 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token', true], ['text', '/_profiler']], [], []],
     'department' => [[], ['_controller' => 'App\\Controller\\DepartmentController::index'], [], [['text', '/department']], [], []],
     'department.add' => [[], ['_controller' => 'App\\Controller\\DepartmentController::add'], [], [['text', '/department/add']], [], []],
-    'email' => [[], ['_controller' => 'App\\Controller\\EmailController::index'], [], [['text', '/email']], [], []],
-    'email.add' => [[], ['_controller' => 'App\\Controller\\EmailController::add'], [], [['text', '/email/add']], [], []],
     'employee' => [[], ['_controller' => 'App\\Controller\\EmployeeController::index'], [], [['text', '/employee']], [], []],
     'employee.add' => [[], ['_controller' => 'App\\Controller\\EmployeeController::add'], [], [['text', '/employee/add']], [], []],
     'app_home_index' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
     'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/home']], [], []],
+    'petemail' => [[], ['_controller' => 'App\\Controller\\PetEmailController::index'], [], [['text', '/petemail']], [], []],
     '_preview_error' => [['code', '_format'], ['_controller' => 'error_controller::preview', '_format' => 'html'], ['code' => '\\d+'], [['variable', '.', '[^/]++', '_format', true], ['variable', '/', '\\d+', 'code', true], ['text', '/_error']], [], []],
 ];

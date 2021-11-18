@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Email {% block action_title %}{% endblock %}{% endblock %}
+
+{% block body %}
+{{ include('nav.html.twig') }}
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+     
+    </div>
+    <div class="col-10">
+     {{ include('flash.html.twig') }}
+      {% block method_body %}   <h1>Hello this is Email page! ✅</h1>
+             <a class="btn btn-dark" href={{ path('employee.add') }}>Add Employee</a>
+        {% endblock %}
+    </div>
+    <div class="col">
+    </div>
+  </div>
+</div>
+{{ include('foot.html.twig') }}
+{% endblock %}

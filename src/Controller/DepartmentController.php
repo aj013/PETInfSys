@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Department;
 use App\Form\DepartmentType;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Service\DepartmentService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,12 +24,22 @@ class DepartmentController extends AbstractController
     /**
    * @Route("/department/add", name="department.add")
    */
-    public function add(Request $request, EntityManagerInterface $emi)
-    {
-        $department = new Department();
-        $form = $this->createForm(DepartmentType::class, $department);
+  public function add(Request $request, DepartmentService $deptServ)
+  {
+      $dept = new Department();
+      $form = $this->createForm(DepartmentType::class, $dept);
+      $form->handleRequest($request);
+     if($deptServ->deptAdd($form,$dept))
+      {
+         $this->addFlash('success','Successufully added new Department');
+        return $this->redirectToRoute('department');
+      }
+      else
+      {
         return $this->render('department/add.html.twig', [
             'form' => $form->createView(),
         ]);
-    }
+    
+      }
+  }
 }

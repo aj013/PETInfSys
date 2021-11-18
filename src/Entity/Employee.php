@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\PetEmail;
 use App\Repository\EmployeeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,10 +30,11 @@ class Employee
     private $department;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Email::class, inversedBy="Employee")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToOne(targetEntity=PetEmail::class, mappedBy="petemail", cascade={"persist", "remove"})
      */
-    private $email;
+    private $petEmail;
+
+ 
 
   
 
@@ -65,17 +67,20 @@ class Employee
         return $this;
     }
 
-    public function getEmail(): ?Email
+    public function getPetEmail(): ?PetEmail
     {
-        return $this->email;
+        return $this->petEmail;
     }
 
-    public function setEmail(?Email $email): self
+    public function setPetEmail(PetEmail $petEmail): self
     {
-        $this->email = $email;
+        // set the owning side of the relation if necessary
+        if ($petEmail->getPetemail() !== $this) {
+            $petEmail->setPetemail($this);
+        }
+
+        $this->petEmail = $petEmail;
 
         return $this;
     }
-
-  
 }

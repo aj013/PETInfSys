@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
+use App\Service\EmployeeService;
 use App\Entity\Employee;
 use App\Form\EmployeeType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
   
@@ -22,15 +22,25 @@ class EmployeeController extends AbstractController
             'controller_name' => 'EmployeeController',
         ]);
     }
-        /**
+  /**
    * @Route("/employee/add", name="employee.add")
    */
-  public function add(Request $request, EntityManagerInterface $emi)
+  public function add(Request $request, EmployeeService $empServ)
   {
       $employee = new Employee();
       $form = $this->createForm(EmployeeType::class, $employee);
-      return $this->render('employee/add.html.twig', [
-          'form' => $form->createView(),
-      ]);
+      $form->handleRequest($request);
+     if($empServ->employeeAdd($form,$employee))
+      {
+         $this->addFlash('success','Successufully added new Employee');
+        return $this->redirectToRoute('employee');
+      }
+      else
+      {
+        return $this->render('employee/add.html.twig', [
+            'form' => $form->createView(),
+        ]);
+    
+      }
   }
 }

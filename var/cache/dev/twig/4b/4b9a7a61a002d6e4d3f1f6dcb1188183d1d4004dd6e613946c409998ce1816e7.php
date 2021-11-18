@@ -66,7 +66,7 @@ class __TwigTemplate_6708f681fc5a8e6c97fc10c62239eb46d080c0c4e96dc51c6cd63cdb9e9
         echo ">Employee</a></li>
             <li><a class=\"dropdown-item\" href=";
         // line 19
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("email");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("petemail");
         echo ">Email</a></li>
             <li><a class=\"dropdown-item\" href=";
         // line 20
@@ -123,7 +123,7 @@ class __TwigTemplate_6708f681fc5a8e6c97fc10c62239eb46d080c0c4e96dc51c6cd63cdb9e9
           </a>
           <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
             <li><a class=\"dropdown-item\" href={{ path('employee') }}>Employee</a></li>
-            <li><a class=\"dropdown-item\" href={{ path('email') }}>Email</a></li>
+            <li><a class=\"dropdown-item\" href={{ path('petemail') }}>Email</a></li>
             <li><a class=\"dropdown-item\" href={{ path('department') }}>Department</a></li>
           </ul>
         </li>
